@@ -3,7 +3,6 @@ const tasks = [
   {title: "Consertar Computador", type: "Importante"},
   {title: "Beber água", type: "Normal"},
 ];
-let contador2 = 3;
 function revomeTask(event) {
   console.log(event)
 }
@@ -23,13 +22,15 @@ function addClickOnbutton() {
     buttao[i].onclick = function (event) {
       let butaoClicado = event.target;
       let li = butaoClicado.parentNode;
-      indexOf();
+      let removeP = li.querySelector('p');
+      console.log(removeP.textContent);
       li.remove();
     }
   }
 }
 addClickOnbutton();
 function createTaskItem(title, type) {
+  const ul = document.querySelector('ul');
   const li = document.createElement("li");
   const div = document.createElement("div");
   const span = document.createElement("span");
@@ -59,11 +60,15 @@ function createTaskItem(title, type) {
   }
   addClickOnbutton();
 }
-let contador = tasks.length
 function renderElements(tasks) {
   ul = document.querySelector("ul");
-  createTaskItem(tasks[contador].title, tasks[contador].type)
-  
+  for (let i = 1; i < tasks.length; i++) {
+    li = document.querySelector('li')
+    li.remove()
+  }
+  for (let i = 0; i < tasks.length; i++) {
+    createTaskItem(tasks[i].title, tasks[i].type)
+  }
 }
 const formSubmit = document.querySelector(".form__container")
 formSubmit.addEventListener("submit", function (event) {
