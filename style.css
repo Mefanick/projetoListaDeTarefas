@@ -43,6 +43,9 @@ body{
     padding-left: 1.5em;
     color: #A48B89;
 }
+.input__box:hover{
+    cursor:pointer;
+}
 .form__button--add-task{
     background-color: #3b5bdb;
     color: white;
@@ -75,6 +78,9 @@ h2{
     margin: 40px 40px 0 40px;
     padding: 0;
     border: none;
+}
+.form__button--add-task:hover{
+    cursor:pointer;
 }
 .form__input--text{
     border: none;
@@ -125,8 +131,8 @@ h2{
     width: 15px;
     margin-right: 2.5em;
     background-image: url("./assets/trash-icon.svg");
-    border: none!important;
+    border: none;
 }
 .task__button--remove-task:hover{
-    background-color: red;
+    cursor:pointer;
 }

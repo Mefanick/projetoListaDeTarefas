@@ -8,7 +8,7 @@ function revomeTask(event) {
 }
 function indexOf(array, elemento) {
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === elemento) {
+    if (array[i].title === elemento) {
       return i; 
     }
   }
@@ -23,7 +23,7 @@ function addClickOnbutton() {
       let butaoClicado = event.target;
       let li = butaoClicado.parentNode;
       let removeP = li.querySelector('p');
-      console.log(removeP.textContent);
+      tasks.splice(indexOf(tasks, removeP.textContent), 1)
       li.remove();
     }
   }
