@@ -29,14 +29,14 @@ function addClickOnbutton() {
   }
 }
 addClickOnbutton();
-function createTaskItem(title, type) {
+function createTaskItem(tasks) {
   const ul = document.querySelector('ul');
   const li = document.createElement("li");
   const div = document.createElement("div");
   const span = document.createElement("span");
   const p = document.createElement("p");
   const button = document.createElement("button");
-  const taskTitle = title;
+  const taskTitle = tasks.title;
 
   ul.appendChild(li);
   li.appendChild(div);
@@ -48,17 +48,18 @@ function createTaskItem(title, type) {
   li.classList.add("task__item");
   div.classList.add("task-info__container");
   button.classList.add("task__button--remove-task");
-  if (type == 'Urgente') {
+  if (tasks.type == 'Urgente') {
     const taskImportance = 'span-urgent';
     span.classList.add('task-type', taskImportance);
-  } else if (type == 'Importante'){
+  } else if (tasks.type == 'Importante'){
     const taskImportance = 'span-important';
     span.classList.add('task-type', taskImportance);
-  } else if(type == 'Normal'){
+  } else if(tasks.type == 'Normal'){
     const taskImportance = 'span-normal';
     span.classList.add('task-type', taskImportance);
   }
   addClickOnbutton();
+  return li;
 }
 function renderElements(tasks) {
   ul = document.querySelector("ul");
@@ -67,7 +68,7 @@ function renderElements(tasks) {
     li.remove()
   }
   for (let i = 0; i < tasks.length; i++) {
-    createTaskItem(tasks[i].title, tasks[i].type)
+    createTaskItem(tasks[i], tasks[i])
   }
 }
 const formSubmit = document.querySelector(".form__container")
